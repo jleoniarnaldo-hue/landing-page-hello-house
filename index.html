@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello House | Assessoria Especializada em Leilão de Imóveis</title>
+<meta name="description" content="Assessoria especializada em leilão de imóveis. Encontre boas oportunidades com segurança, análise criteriosa e acompanhamento especializado do início ao fim.">
+<link rel="icon" type="image/png" href="assets/img/logos/icon-green.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container container--wide header-inner">
+    <a href="#" class="brand" aria-label="Hello House — início">
+      <img src="assets/img/logos/logo-horizontal-green.png" alt="Hello House" class="brand-logo">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#oportunidades">Melhores Oportunidades</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#faq">Perguntas Frequentes</a></li>
+        <li><a href="#feedbacks">Feedbacks</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contato" class="btn btn-primary btn-sm">Falar com um especialista</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Assessoria especializada em leilão de imóveis</p>
+        <h1>Oportunidades reais em leilão, decisões com <em>segurança</em>.</h1>
+        <p class="hero-lede">Analisamos, filtramos e traduzimos cada oportunidade de leilão para que você invista com clareza — do edital à conquista das chaves, com uma equipe especializada ao seu lado.</p>
+        <div class="hero-actions">
+          <a href="#oportunidades" class="btn btn-primary">Ver oportunidades</a>
+          <a href="#como-funciona" class="btn btn-ghost">Como funciona a assessoria</a>
+        </div>
+        <div class="hero-stats">
+          <!-- <div class="hero-stat">
+            <span class="hero-stat-num">+300</span>
+            <span class="hero-stat-label">imóveis analisados</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">100%</span>
+            <span class="hero-stat-label">assessoria documental</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">3</span>
+            <span class="hero-stat-label">especialistas dedicados</span>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <div class="hero-media">
+          <img src="assets/img/hero/hero-main.jpg" alt="Aperto de mãos selando a aquisição de um imóvel com a assessoria Hello House" loading="eager">
+        </div>
+        <div class="hero-card hero-card--bottom">
+          <span class="hero-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <span>Análise documental e de riscos em cada imóvel indicado</span>
+        </div>
+        <div class="hero-visual-frame" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OPORTUNIDADES ===================== -->
+  <section class="section" id="oportunidades">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Portfólio de oportunidades</p>
+        <h2>Melhores oportunidades por região</h2>
+        <p class="section-lede">Uma seleção de imóveis em leilão avaliados pela nossa equipe. Os cards abaixo usam dados ilustrativos — a estrutura já está pronta para consumir um banco de dados ou API de imóveis reais.</p>
+      </div>
+
+      <div class="filters" id="propertyFilters">
+        <div class="filter-field">
+          <label for="filterState">Estado</label>
+          <select id="filterState">
+            <option value="">Todos os estados</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filterCity">Cidade / Região</label>
+          <select id="filterCity">
+            <option value="">Todas as cidades</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filterType">Tipo de imóvel</label>
+          <select id="filterType">
+            <option value="">Todos os tipos</option>
+          </select>
+        </div>
+        <button class="btn btn-ghost btn-sm filter-clear" id="filterClear" type="button">Limpar filtros</button>
+      </div>
+
+      <div class="property-grid" id="propertyGrid" aria-live="polite">
+        <!-- Cards são renderizados via js/main.js a partir de PROPERTY_DATA -->
+      </div>
+
+      <p class="property-empty" id="propertyEmpty" hidden>Nenhum imóvel encontrado para os filtros selecionados.</p>
+
+      <div class="section-cta-row">
+        <a href="#contato" class="btn btn-outline">Quero ser avisado de novas oportunidades</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUEM SOMOS ===================== -->
+  <section class="section section--tinted" id="quem-somos">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Quem está por trás da Hello House</p>
+        <h2>Pessoas reais, assessorando decisões reais</h2>
+        <p class="section-lede">A Hello House nasceu para tirar a complexidade do caminho entre você e uma boa oportunidade de leilão. Por trás de cada indicação, existe uma equipe que estuda o mercado, analisa riscos e acompanha cada etapa ao seu lado.</p>
+      </div>
+
+      <div class="team-banner" data-reveal>
+        <img src="assets/img/team/team-group.jpg" alt="Dandara, Eduardo e Fabiano, sócios da Hello House" loading="lazy">
+      </div>
+
+      <div class="mission-block" data-reveal>
+        <span class="mission-rule" aria-hidden="true"></span>
+        <h3>Nosso propósito</h3>
+        <p>[[Inserir descrição institucional da empresa: proposta de valor, história de fundação e o que diferencia a Hello House no mercado de assessoria para leilão de imóveis.]]</p>
+      </div>
+
+      <div class="partners-grid">
+        <article class="partner-card" data-reveal>
+          <div class="partner-photo">
+            <img src="assets/img/partners/dandara.jpg" alt="Dandara, sócia da Hello House" loading="lazy">
+          </div>
+          <div class="partner-info">
+            <h3 class="partner-name">Dandara Balthazar</h3>
+            <p class="partner-role">Judicial</p>
+            <p class="partner-bio">A sócia-fundadora é advogada especialista em leilões de imóveis com 10 anos de atuação no mercado imobiliário com foco nos leilões, pós-graduada em direito notarial e registral e sócia-fundadora do escritório Balthazar Advocacia. Professora precursora na formação de advogados em leilões de imóveis e criadora do curso de especialização
+            Especialize-se: Leilões de Imóveis, que conta com a maior comunidade de especialistas do pais.
+            É vice-presidente da comissão de leilões do Instituto Brasileiro de Direito
+            Imobiliário - IBRADIM, secretária adjunta da comissão de leilões da
+            OAB/RJ e palestrante em eventos da área.</p>
+          </div>
+        </article>
+
+        <article class="partner-card" data-reveal>
+          <div class="partner-photo">
+            <img src="assets/img/partners/eduardo.jpg" alt="Eduardo, sócio da Hello House" loading="lazy">
+          </div>
+          <div class="partner-info">
+            <h3 class="partner-name">Eduardo Balthazar
+            </h3>
+            <p class="partner-role">Comercial</p>
+            <p class="partner-bio">Eduardo Balthazar é graduado em Administração pela Universidade Estácio de Sá e possui MBA em Finanças pelo IBMEC. Atuou por cinco anos na EY, onde desenvolveu sólida experiência em auditoria, análise financeira, gestão de riscos e processos corporativos. Atualmente é sócio fundador da Hello House e da Arrematize, empresas especializadas em assessoria para investidores em leilões de imóveis, due diligence jurídica e inteligência aplicada ao mercado imobiliário.</p>
+          </div>
+        </article>
+
+        <article class="partner-card" data-reveal>
+          <div class="partner-photo">
+            <img src="assets/img/partners/fabiano.jpg" alt="Fabiano, sócio da Hello House" loading="lazy">
+          </div>
+          <div class="partner-info">
+            <h3 class="partner-name">Fabiano Doutel</h3>
+            <p class="partner-role">Tecnologia</p>
+            <p class="partner-bio">Fabiano Doutel é Engenheiro de Produção com 15 anos de trajetória no setor industrial, onde liderou a implantação de processos e automações que geraram ganhos consistentes de eficiência e produtividade. Sócio fundador da Arrematize e sócio da Hello House, combina visão estratégica com profundo domínio técnico. À frente do desenvolvimento da Arrematize, plataforma B2B e B2C que reúne mais de 40 mil imóveis em leilão, aplica automação, inteligência artificial e análise de dados para transformar dados dispersos em oportunidades qualificadas de investimento, entregando aos clientes decisões mais rápidas, seguras e rentáveis.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVIÇOS ===================== -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>O que fazemos</p>
+        <h2>Assessoria completa, do edital às chaves</h2>
+        <p class="section-lede">Cada etapa da jornada de leilão conduzida com método, para que a decisão final seja sempre sua — mas nunca sozinha.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card" data-reveal>
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Análise de oportunidades</h3>
+          <p>Rastreamos editais e leilões continuamente para identificar imóveis com real potencial de ganho.</p>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V9l8-5 8 5v11" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 20v-7h6v7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Pesquisa e seleção de imóveis</h3>
+          <p>Filtramos oportunidades compatíveis com o perfil, o objetivo e o orçamento de cada cliente.</p>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3.5h7l4 4V20a1 1 0 01-1 1H7a1 1 0 01-1-1V4.5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 11h6M9 15h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Análise documental</h3>
+          <p>Verificação minuciosa de matrícula, edital, ônus e demais documentos que envolvem o imóvel.</p>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="15.5" r=".9" fill="currentColor"/></svg>
+          </span>
+          <h3>Análise de riscos</h3>
+          <p>Mapeamos riscos jurídicos, físicos e financeiros antes de qualquer decisão de lance.</p>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5.5 4 3.5 5-6 4 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 20h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Avaliação da oportunidade</h3>
+          <p>Comparativo entre valor de avaliação, lance mínimo e preço de mercado da região.</p>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Assessoria na aquisição</h3>
+          <p>Acompanhamento durante o lance, arrematação e todas as etapas formais do processo.</p>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <span class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20c1.4-3.6 4.4-5.5 7.5-5.5s6.1 1.9 7.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Acompanhamento do cliente</h3>
+          <p>Suporte próximo após a arrematação, até a imissão na posse e entrega das chaves.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMO FUNCIONA ===================== -->
+  <section class="section section--tinted" id="como-funciona">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Nosso método</p>
+        <h2>Como funciona a assessoria</h2>
+        <p class="section-lede">Um processo estruturado em cinco etapas, pensado para transformar informação complexa em decisão simples.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-step" data-reveal>
+          <span class="timeline-num">01</span>
+          <div class="timeline-content">
+            <h3>Entendemos seu perfil</h3>
+            <p>Identificamos objetivos, necessidades e perfil de investimento antes de indicar qualquer imóvel.</p>
+          </div>
+        </li>
+        <li class="timeline-step" data-reveal>
+          <span class="timeline-num">02</span>
+          <div class="timeline-content">
+            <h3>Encontramos oportunidades</h3>
+            <p>Selecionamos imóveis em leilão compatíveis com o perfil e os objetivos do cliente.</p>
+          </div>
+        </li>
+        <li class="timeline-step" data-reveal>
+          <span class="timeline-num">03</span>
+          <div class="timeline-content">
+            <h3>Analisamos os riscos</h3>
+            <p>Realizamos a análise da oportunidade e dos principais aspectos jurídicos e documentais envolvidos.</p>
+          </div>
+        </li>
+        <li class="timeline-step" data-reveal>
+          <span class="timeline-num">04</span>
+          <div class="timeline-content">
+            <h3>Orientamos a decisão</h3>
+            <p>Apresentamos as informações necessárias para uma decisão consciente e segura.</p>
+          </div>
+        </li>
+        <li class="timeline-step" data-reveal>
+          <span class="timeline-num">05</span>
+          <div class="timeline-content">
+            <h3>Acompanhamos o processo</h3>
+            <p>Prestamos assessoria durante as etapas da aquisição, até a posse do imóvel.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== FEEDBACKS ===================== -->
+  <section class="section" id="feedbacks">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Depoimentos</p>
+        <h2>O que estão dizendo os nossos clientes?</h2>
+        <p class="section-lede">[[Substituir pelos depoimentos reais de clientes assim que estiverem disponíveis. Os cards abaixo são ilustrativos.]]</p>
+      </div>
+
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-track" id="testimonialTrack">
+          <!-- slides renderizados via js/main.js -->
+        </div>
+        <div class="testimonial-controls">
+          <button class="carousel-btn" id="testimonialPrev" type="button" aria-label="Depoimento anterior">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="testimonial-dots" id="testimonialDots"></div>
+          <button class="carousel-btn" id="testimonialNext" type="button" aria-label="Próximo depoimento">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section section--tinted" id="faq">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Tire suas dúvidas</p>
+        <h2>Perguntas frequentes</h2>
+      </div>
+
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>O que é um leilão de imóveis?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>É uma modalidade de venda em que imóveis — geralmente oriundos de execução judicial, extrajudicial ou de instituições financeiras — são ofertados publicamente a quem apresentar o melhor lance, respeitando um edital com regras específicas.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Como funciona a assessoria?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Entendemos seu perfil de investimento, selecionamos oportunidades compatíveis, analisamos documentação e riscos, e acompanhamos você desde o estudo do edital até a arrematação e a posse do imóvel.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>É seguro comprar um imóvel em leilão?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Pode ser uma operação segura quando há análise documental e jurídica prévia. É justamente essa análise, feita por uma equipe especializada, que reduz a exposição a riscos e evita surpresas após a arrematação.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Quais são os principais riscos?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Entre os riscos mais comuns estão pendências judiciais sobre o imóvel, ocupação irregular, dívidas propter rem (como IPTU e condomínio) e desconhecimento das regras específicas do edital. Nossa análise é focada em mapear cada um desses pontos.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Como é feita a análise do imóvel?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Avaliamos matrícula atualizada, edital do leilão, situação de ocupação, débitos vinculados ao imóvel e comparativo de valor com o mercado da região, entre outros pontos relevantes para a decisão.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Quanto preciso para participar de um leilão?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Varia conforme o imóvel e o edital: cada leilão define o lance mínimo, forma de pagamento (à vista ou financiado) e eventuais comissões. Ajudamos você a entender exatamente o valor total envolvido antes de decidir.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>A assessoria acompanha todo o processo?</span>
+            <span class="accordion-icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-panel">
+            <p>Sim. Estamos com você desde a identificação da oportunidade até a arrematação, a documentação pós-leilão e a imissão na posse do imóvel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA CONVERSÃO ===================== -->
+  <section class="cta-banner">
+    <div class="container cta-banner-inner">
+      <div class="cta-banner-text">
+        <h2>Pronto para encontrar sua próxima oportunidade com segurança?</h2>
+        <p>Fale com a equipe Hello House e receba uma análise especializada antes de dar seu próximo lance.</p>
+      </div>
+      <div class="cta-banner-actions">
+        <a href="#contato" class="btn btn-primary-inverse">Quero uma assessoria</a>
+        <a href="[[link do WhatsApp]]" class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.77.46 3.44 1.27 4.89L2 22l5.31-1.39a9.86 9.86 0 004.73 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 012.4 5.84c0 4.55-3.7 8.24-8.21 8.24a8.2 8.2 0 01-4.17-1.14l-.3-.18-3.15.82.84-3.07-.19-.32a8.18 8.18 0 01-1.26-4.38c0-4.55 3.7-8.21 8.24-8.21zm-4.47 4.7c-.15 0-.4.06-.6.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.11.15 1.6 2.53 3.95 3.45 1.95.77 2.35.62 2.77.58.43-.04 1.38-.56 1.57-1.11.2-.54.2-1 .14-1.1-.06-.1-.21-.15-.44-.27-.23-.11-1.38-.68-1.6-.76-.21-.08-.37-.11-.53.11-.15.23-.6.76-.74.91-.14.15-.27.17-.5.06-.23-.11-.98-.36-1.87-1.15-.69-.61-1.16-1.37-1.3-1.6-.13-.23-.01-.35.1-.47.11-.11.24-.28.36-.42.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.11-.53-1.31-.74-1.79-.19-.46-.39-.4-.53-.41-.14-.01-.29-.01-.44-.01z"/></svg>
+          Fale pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTATO ===================== -->
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Fale com a gente</p>
+        <h2>Vamos conversar sobre sua próxima oportunidade</h2>
+        <p class="section-lede">Preencha o formulário ou fale diretamente com a equipe pelos canais abaixo.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="phone">Telefone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+          </div>
+          <div class="form-field">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Enviar mensagem</button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+
+        <aside class="contact-side">
+          <div class="contact-card">
+            <h3>Canais de contato</h3>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div>
+                  <span class="contact-label">E-mail</span>
+                  <a href="mailto:[[email@hellohouse.com.br]]">[[email@hellohouse.com.br]]</a>
+                </div>
+              </li>
+              <li>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v4c0 1-1 2-2 2C10.5 21 3 13.5 3 6c0-1 1-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </span>
+                <div>
+                  <span class="contact-label">Telefone</span>
+                  <a href="tel:[[+5500000000000]]">[[(00) 00000-0000]]</a>
+                </div>
+              </li>
+              <li>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 005 9.5C5 14.9 12 21 12 21z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <div>
+                  <span class="contact-label">Atendimento</span>
+                  <span>[[Cidade / região de atuação]]</span>
+                </div>
+              </li>
+            </ul>
+            <a href="[[link do WhatsApp]]" class="btn btn-whatsapp btn-full" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.77.46 3.44 1.27 4.89L2 22l5.31-1.39a9.86 9.86 0 004.73 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 012.4 5.84c0 4.55-3.7 8.24-8.21 8.24a8.2 8.2 0 01-4.17-1.14l-.3-.18-3.15.82.84-3.07-.19-.32a8.18 8.18 0 01-1.26-4.38c0-4.55 3.7-8.21 8.24-8.21zm-4.47 4.7c-.15 0-.4.06-.6.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.11.15 1.6 2.53 3.95 3.45 1.95.77 2.35.62 2.77.58.43-.04 1.38-.56 1.57-1.11.2-.54.2-1 .14-1.1-.06-.1-.21-.15-.44-.27-.23-.11-1.38-.68-1.6-.76-.21-.08-.37-.11-.53.11-.15.23-.6.76-.74.91-.14.15-.27.17-.5.06-.23-.11-.98-.36-1.87-1.15-.69-.61-1.16-1.37-1.3-1.6-.13-.23-.01-.35.1-.47.11-.11.24-.28.36-.42.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.11-.53-1.31-.74-1.79-.19-.46-.39-.4-.53-.41-.14-.01-.29-.01-.44-.01z"/></svg>
+              Fale pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="contact-social">
+            <span class="contact-label">Redes sociais</span>
+            <div class="social-links">
+              <a href="[[Instagram]]" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
+              </a>
+              <a href="[[LinkedIn]]" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5v6M8 7.9v.1M12 16.5v-3.7c0-1.2.9-2.1 2-2.1s2 .9 2 2.1v3.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/img/logos/icon-white.png" alt="" class="footer-icon" aria-hidden="true">
+      <p class="footer-desc">Assessoria especializada em leilão de imóveis, unindo análise técnica, segurança jurídica e acompanhamento próximo para quem quer investir com confiança.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#oportunidades">Melhores Oportunidades</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#faq">Perguntas Frequentes</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="mailto:[[email@hellohouse.com.br]]">[[email@hellohouse.com.br]]</a></li>
+        <li><a href="tel:[[+5500000000000]]">[[(00) 00000-0000]]</a></li>
+        <li>[[Cidade / região de atuação]]</li>
+      </ul>
+      <div class="social-links">
+        <a href="[[Instagram]]" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="[[LinkedIn]]" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5v6M8 7.9v.1M12 16.5v-3.7c0-1.2.9-2.1 2-2.1s2 .9 2 2.1v3.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; <span id="year"></span> Hello House. Todos os direitos reservados.</p>
+      <p class="footer-legal">CNPJ [[00.000.000/0001-00]] — Assessoria em leilão de imóveis. Este site não constitui oferta de venda de imóveis nem substitui a leitura integral do edital de cada leilão.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="[[link do WhatsApp]]" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.77.46 3.44 1.27 4.89L2 22l5.31-1.39a9.86 9.86 0 004.73 1.2h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 012.4 5.84c0 4.55-3.7 8.24-8.21 8.24a8.2 8.2 0 01-4.17-1.14l-.3-.18-3.15.82.84-3.07-.19-.32a8.18 8.18 0 01-1.26-4.38c0-4.55 3.7-8.21 8.24-8.21zm-4.47 4.7c-.15 0-.4.06-.6.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.11.15 1.6 2.53 3.95 3.45 1.95.77 2.35.62 2.77.58.43-.04 1.38-.56 1.57-1.11.2-.54.2-1 .14-1.1-.06-.1-.21-.15-.44-.27-.23-.11-1.38-.68-1.6-.76-.21-.08-.37-.11-.53.11-.15.23-.6.76-.74.91-.14.15-.27.17-.5.06-.23-.11-.98-.36-1.87-1.15-.69-.61-1.16-1.37-1.3-1.6-.13-.23-.01-.35.1-.47.11-.11.24-.28.36-.42.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.4-.06-.11-.53-1.31-.74-1.79-.19-.46-.39-.4-.53-.41-.14-.01-.29-.01-.44-.01z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
